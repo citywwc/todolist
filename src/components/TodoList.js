@@ -30,9 +30,10 @@ class TodoList extends Component {
             this.state.list.map((item, index) => {
                 return (
                         <TodoItem
+                            key = { item }
                             content = { item }
                             index = { index }
-                            deleteItem = {this.hanleItemDelete}
+                            deleteItem = {this.handleItemDelete}
                         />
 
             )
