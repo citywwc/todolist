@@ -1,5 +1,8 @@
 import React, { Component, Fragment} from 'react';
+import { Button, Input } from "antd";
+import 'antd/dist/antd.css';
 import TodoItem from './TodoItem';
+
 class TodoList extends Component {
     constructor(props){
         super(props);
@@ -7,7 +10,7 @@ class TodoList extends Component {
             inputValue : '',
             list: []
         };
-        this.handleIinputValue = this.handleIinputValue.bind(this);
+        this.handleInputValue = this.handleInputValue.bind(this);
         this.handleBtnClick = this.handleBtnClick.bind(this);
         this.handleItemDelete = this.handleItemDelete.bind(this);
     }
@@ -16,8 +19,8 @@ class TodoList extends Component {
         return (
             <Fragment>
                 <div>
-                    <input value={this.state.inputValue} onChange={this.handleIinputValue} placeholder='TODO'/>
-                    <button onClick={this.handleBtnClick}>Submit</button>
+                    <Input value={this.state.inputValue} onChange={this.handleInputValue} placeholder='TODO'/>
+                    <Button type="primary" onClick={this.handleBtnClick}>Submit</Button>
                 </div>
                 <ul>
                    {this.getTodoItem()}
@@ -29,18 +32,19 @@ class TodoList extends Component {
         return(
             this.state.list.map((item, index) => {
                 return (
-                        <TodoItem
-                            content = { item }
-                            index = { index }
-                            deleteItem = {this.hanleItemDelete}
-                        />
+                  <TodoItem
+                    key = { item }
+                    content = { item }
+                    index = { index }
+                    deleteItem = {this.handleItemDelete}
+                  />
 
             )
            })
         )
      }
 
-     handleIinputValue(e){
+     handleInputValue(e){
         const value = e.target.value;
         this.setState(() => ({
             inputValue: value
