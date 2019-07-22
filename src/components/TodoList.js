@@ -3,7 +3,7 @@ import React, { Component} from 'react';
 import TodoListUI from './TodoListUI'
 
 import store from '../store';
-import { getInputChangeAction, getAddTodoItem, getDeleteTodoItem } from '../store/actionCreators';
+import { getTodoList, getInputChangeAction, getAddTodoItem, getDeleteTodoItem } from '../store/actionCreators';
 
 class TodoList extends Component {
     constructor(props){
@@ -26,6 +26,11 @@ class TodoList extends Component {
                 handleItemDelete = {this.handleItemDelete}
 
             />);
+     }
+
+     componentDidMount(){
+        const action = getTodoList();
+        store.dispatch(action);
      }
 
      handleInputValue(e){
