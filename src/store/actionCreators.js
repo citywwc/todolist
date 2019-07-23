@@ -22,7 +22,7 @@ export const initListAction = (index) => ({
 
 export const getTodoList = () => {
     return (dispatch) => {
-        axios.get('/todolist.json').then((res) => {
+        axios.get('http://localhost.charlesproxy.com:3000/list').then((res) => {
             const data = res.data;
             const action = initListAction(data);
             dispatch(action);
