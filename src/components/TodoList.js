@@ -51,8 +51,6 @@ class TodoList extends Component {
     handleStoreChange() {
         this.setState(store.getState());
     }
-
-
 }
 
 export default TodoList;

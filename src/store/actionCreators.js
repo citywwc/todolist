@@ -15,9 +15,9 @@ export const getDeleteTodoItem = (index) => ({
     index
 })
 
-export const initListAction = (index) => ({
+export const initListAction = (data) => ({
     type: INIT_LIST_ACITON,
-    index
+    data
 })
 
 export const getTodoList = () => {
